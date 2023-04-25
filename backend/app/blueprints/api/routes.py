@@ -14,13 +14,12 @@ from app.blueprints.api.models import searchTerm, techTable
 def indexLI(terms):
 
     result = scrapeLI(terms)  
-    # result = testFunc(terms)   
+      
     
     t = {}
     t['term'] = terms 
 
     searchTerm(**t)
-
 
     table = {}
     table['term'] = terms  

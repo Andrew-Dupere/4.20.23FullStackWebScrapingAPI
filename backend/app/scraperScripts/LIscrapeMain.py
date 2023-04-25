@@ -24,7 +24,7 @@ def scrapeLI(keywords):
           'Tensorflow','AWS','Flask','Django','API','REST',' Java ','JavaScript','C#','C++','Azure','NLP','Pandas',
           'jQuery','React','Node','Typescript','Python','Linux','Unix','PostgreSQL','MongoDB']
     
-    page = range(0,600,25)
+    page = range(0,50,25)
 
     keywordsMod = keywords.replace(' ','%20').replace(',','%2C')
 
@@ -65,6 +65,5 @@ def scrapeLI(keywords):
     for item in skills:
         
         result[item] = bigsoup.count(item)
-
 
     return(result)
