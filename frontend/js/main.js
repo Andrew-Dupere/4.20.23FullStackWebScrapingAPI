@@ -1,6 +1,5 @@
 
-// need to build another event listener for the dropdown menu
-
+//even listener for each dropdown item
 let dropdowns = document.getElementsByClassName('dropdown-item')
 
 Array.from(dropdowns).forEach((dropdown) => { 
@@ -17,6 +16,7 @@ async function staticHandler(event){
     
 }
 
+//api call to the database query endpoint
 async function getStatAPI(terms){
     let res = await fetch (`http://127.0.0.1:5000/api/db/${terms}`)    
     let rd = res.json()
@@ -26,26 +26,26 @@ async function getStatAPI(terms){
 }
 
 
-let form = document.getElementById('liform') //ID in the form tag
+//event listener for the linkedin scrape form
+let form = document.getElementById('liform') 
 
-form.addEventListener('submit',handler) //upon form submission, run handler function
+form.addEventListener('submit',handler) 
 
 async function handler(event){    
 
     event.preventDefault()    
 
-    let terms = event.target.searchTerms.value //the user input    
+    let terms = event.target.searchTerms.value  
 
     let info = await getAPI(terms)
     
     createTable(info,terms,'scrapeDisplay')
-    event.preventDefault() 
-
-    event.target.searchTerms.value = '';
-    event.preventDefault() 
     
+    event.target.searchTerms.value = '';
+        
 }
 
+//api call to the linkedinscrape function
 async function getAPI(terms){
     let res = await fetch (`http://127.0.0.1:5000/api/li/${terms}`)
     
@@ -55,23 +55,20 @@ async function getAPI(terms){
 }
 
 
-
+//create table function
 function createTable(res,keywords,container){
     var tableContainer = document.getElementById(container)
-
-
 
     card = document.createElement('div')
     card.className = 'tableCard pt-4'
 
     let title = document.createElement('h3')
-    title.innerHTML = `Search Term: ${keywords}`
+    title.innerHTML = `${keywords}`
     title.className = 'text-center'
 
     var table = document.createElement('table')
     table.className = 'w-100'
-    var tbody = document.createElement('tbody')
-       
+    var tbody = document.createElement('tbody')       
     
     var tableheader =      
                        `
@@ -83,6 +80,9 @@ function createTable(res,keywords,container){
     table.innerHTML += tableheader  
 
     var rowlist = []
+    //pull apart the json response of each table row into an array within an array
+    //sort the array in descending order based on the count
+    //add the row to the table if the count (item[1]) value is > 1 
 
     for (const [key, value] of Object.entries(res)){
         rowlist.push([key,value])
@@ -94,7 +94,6 @@ function createTable(res,keywords,container){
         var row = `<tr>
                     <td>${item[0]}</td>
                     <td>${item[1]}</td>       
-        
                     </tr>`
             table.innerHTML += row
        }
