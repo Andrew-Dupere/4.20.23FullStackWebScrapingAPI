@@ -13,7 +13,7 @@ from app.blueprints.api.models import searchTerm, techTable
 @api.route('/li/<terms>', methods = ['GET','POST'])
 def indexLI(terms):
 
-    result = scrapeLI(terms)  
+    result = scrapeLI(terms) 
       
     
     t = {}
@@ -29,7 +29,7 @@ def indexLI(terms):
         table['counts'] = val
         techTable(**table)        
 
-    return jsonify(result)
+    return jsonify(result)  
 
 
 #staticendpoint calling directly from the database

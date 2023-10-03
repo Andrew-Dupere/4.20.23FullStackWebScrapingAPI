@@ -9,8 +9,6 @@ from app.blueprints.api.models import searchTerm
 
 
 
-
-
 def testFunc(variable):
     d = {variable:234,'JavaScript':25,'SQL':35,'REST API':5,'MongoDB':6}
 
@@ -24,7 +22,7 @@ def scrapeLI(keywords):
           'Tensorflow','AWS','Flask','Django','API','REST',' Java ','JavaScript','C#','C++','Azure','NLP','Pandas',
           'jQuery','React','Node','Typescript','Python','Linux','Unix','PostgreSQL','MongoDB']
     
-    page = range(0,50,25)
+    page = range(0,900,25)
 
     keywordsMod = keywords.replace(' ','%20').replace(',','%2C')
 

@@ -4,7 +4,7 @@ let dropdowns = document.getElementsByClassName('dropdown-item')
 
 Array.from(dropdowns).forEach((dropdown) => { 
     dropdown.addEventListener('click', staticHandler)    
-});
+}); 
 
 
 async function staticHandler(event){

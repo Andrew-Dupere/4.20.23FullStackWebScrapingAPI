@@ -4,4 +4,6 @@ venv
 
 app.db
 
+index.html
+
 .env
