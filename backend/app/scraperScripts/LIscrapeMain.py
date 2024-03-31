@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # from lxml import etree
 import pandas as pd
 import json
-from app.blueprints.api.models import searchTerm
+# from app.blueprints.api.models import searchTerm
 
 
 
@@ -22,7 +22,7 @@ def scrapeLI(keywords):
           'Tensorflow','AWS','Flask','Django','API','REST',' Java ','JavaScript','C#','C++','Azure','NLP','Pandas',
           'jQuery','React','Node','Typescript','Python','Linux','Unix','PostgreSQL','MongoDB']
     
-    page = range(0,900,25)
+    page = range(0,100,25)
 
     keywordsMod = keywords.replace(' ','%20').replace(',','%2C')
 
